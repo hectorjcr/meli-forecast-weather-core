@@ -6,8 +6,9 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
 
-| API               | /api/forecast/dayforecast/{id}  |
+| URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/dayforecast/{id}  |
 | ----------        | ------------------------------- |
+| API               | /api/forecast/dayforecast/{id}  |
 | Método            | GET                        |
 | Produces          | application/json                |
 | Consumes          | application/json                |
@@ -16,8 +17,9 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | Response Object   | String                          |
 | Descripcion       | Clima del dia consultado        |
 
-| API               | /api/forecast/fakefordebugg/{fromday}/{atDay}  |
+| URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |
+| API            | GET                        |
 | Método            | GET                        |
 | Produces          | application/json                |
 | Consumes          | application/json                |

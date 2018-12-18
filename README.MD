@@ -46,6 +46,28 @@ _Sí los puntos estan alineados entre sí pero no con el sol... Condiciones ópt
 
 _Si los planetas no estan alineados solo queda la opción de que formen un triangulo, habría que determinar si el punto donde se ubica el sol pertenece al área que forma el triangulo; hay dos metodos de hacerlo que mantienen la capacidad de calculo en O(1). Una es por producto vectorial para ver la orientacion del punto mientras se recorre vectorialmente en un mismo sentido (horario o anti-horario) las lineas que forman el poligono convexo que en este caso es el triangulo y otra es por la suma de areas de los triangulos internos que se formarían suponiendo que el punto está dentro del polígono_
 
+## Por producto vectorial
+	:::JAVA
+	public static boolean sunLiesInTriangleVectorsMethod(List<Point> pointsList){
+        Sun sun = new Sun(0, 0);
+        Point a = pointsList.get(0), b = pointsList.get(1), c = pointsList.get(2);
+        Point psun = sun.getPosition();
+        double w1 = ((a.getX()*(c.getY()-a.getY())) + ((psun.getY()-a.getY())*(c.getX()-a.getX())) - ((psun.getX()*(c.getY() - a.getX()))));
+        w1 = w1 / (((b.getY()-a.getY())*(c.getX()-a.getX())) - ((b.getX()-a.getX())*(c.getY()-a.getY())));
+        double w2 = ((psun.getY()-a.getY())-(w1*(b.getY()-a.getY())))/(c.getY()-a.getY());
+        if((w1 >= 0) && (w2 >= 0) && ((w1+w2) <= 1))
+            return Boolean.TRUE;
+        return Boolean.FALSE;
+    }
+## Por Area del triangulo
+	:::JAVA
+	public static double triangleArea(Point a, Point b, Point c){
+        //double M = a.getX()*( b.getY() - c.getY() );
+        //double N = b.getX() * ( c.getY() - a.getY() );
+        //double O = c.getX() * ( a.getY() - b.getY() );
+        return ((a.getX()*( b.getY() - c.getY() )) + (b.getX() * ( c.getY() - a.getY() )) + (c.getX() * ( a.getY() - b.getY() )))/2;
+    }
+
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos

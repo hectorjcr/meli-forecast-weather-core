@@ -39,12 +39,12 @@ sistema solar experimenta un período de sequía.
 
 ![Con titulo](pictures/bestconditions.png "Mejores Condiciones")
 
-	_De aquí obtenemos que si los puntos están alineados entre sí y a su vez con el sol... Sequía_
-	_Sí los puntos estan alineados entre sí pero no con el sol... Condiciones óptimas de presión y de temperatura_
+_De aquí obtenemos que si los puntos están alineados entre sí y a su vez con el sol... Sequía_
+_Sí los puntos estan alineados entre sí pero no con el sol... Condiciones óptimas de presión y de temperatura_
 
 ![Con titulo](pictures/periodolluvia.png "Periodo de lluvia")
 
-	_Si los planetas no estan alineados solo queda la opción de que formen un triangulo, habría que determinar si el punto donde se ubica el sol pertenece al área que forma el triangulo; hay dos metodos de hacerlo que mantienen la capacidad de calculo en O(1). Una es por producto vectorial para ver la orientacion del punto mientras se recorre vectorialmente en un mismo sentido (horario o anti-horario) las lineas que forman el poligono convexo que en este caso es el triangulo y otra es por la suma de areas de los triangulos internos que se formarían suponiendo que el punto está dentro del polígono
+_Si los planetas no estan alineados solo queda la opción de que formen un triangulo, habría que determinar si el punto donde se ubica el sol pertenece al área que forma el triangulo; hay dos metodos de hacerlo que mantienen la capacidad de calculo en O(1). Una es por producto vectorial para ver la orientacion del punto mientras se recorre vectorialmente en un mismo sentido (horario o anti-horario) las lineas que forman el poligono convexo que en este caso es el triangulo y otra es por la suma de areas de los triangulos internos que se formarían suponiendo que el punto está dentro del polígono_
 
 ## Descripción
 

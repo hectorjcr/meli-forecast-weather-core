@@ -6,6 +6,11 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
 
+Cabecera A | Cabecera B
+-- | --
+Campo A0 | Campo B0
+Campo A1 | Campo B1
+
 |-Método-|----------API-------------------|Produces|Consumes|Path Parameters|Response Status|Response Object|Descripcion|
 |:-GET:--|:/api/forecast/dayforecast/{id}:|:application/json:|:application/json:|:{id}=Numero del dia a consultar:|:200 OK - OK:|:String:|:Clima del dia consultado:|
 <table>

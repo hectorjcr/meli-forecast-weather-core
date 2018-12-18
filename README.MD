@@ -28,30 +28,17 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | Response Object   | String                          |
 | Descripcion       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
 
+| URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/generaterecords/{fromday}/{atday}  |
+| ----------        | ------------------------------- |
+| API            | GET                        |
+| Método            | GET                        |
+| Produces          | application/json                |
+| Consumes          | application/json                |
+| Path Parametes    | {fromday} = dia de inicior {atDay}</code> = Dia final |
+| Response Status   | 200 OK - OK                     |
+| Response Object   | String                          |
+| Descripcion       | >Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
 
-
-
-<table>
-<tr>
-    <td>GET</td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code>application/json</code></td>
-    <td><code>{fromday}</code> = dia de inicio | <code></td>
-    <td><code>200 OK - OK</code></td>
-    <td>String</td>
-    <td></td>
-</tr>
-<tr>
-    <td>GET</td>
-    <td><code>/api/forecast/generaterecords/{fromday}/{atday}</code></td>
-    <td><code>application/json</code></td>
-    <td><code>application/json</code></td>
-    <td><code>{fromday}</code> = dia de inicio | <code>{atDay}</code> = Dia final</td>
-    <td><code>200 OK - OK</code></td>
-    <td>String</td>
-    <td>Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD</td>
-</tr>
 <tr>
     <td>GET</td>
     <td><code>/api/forecast/totalreport</code></td>

@@ -18,6 +18,8 @@ Cuando los tres planetas están alineados entre sí y a su vez alineados con res
 sistema solar experimenta un período de sequía.
 
   ![Con titulo](pictures/alineadosconsol.png "JSONDocs")
+  
+  _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración cuando la recta es paralela al eje Y, debido a que la pendiente es infinita, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
 
 ## Descripción
 

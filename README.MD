@@ -15,7 +15,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | Path Parametes    | {id}=Numero del dia a consultar |
 | Response Status   | 200 OK - OK                     |
 | Response Object   | String                          |
-| Descripcion       | Clima del dia consultado        |
+| __Descripcion__       | Clima del dia consultado a partir de calculo matemático, el valor no está almacenado        |
 
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |

@@ -16,39 +16,29 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | Response Object   | String                          |
 | Descripcion       | Clima del dia consultado        |
 
+| API               | /api/forecast/fakefordebugg/{fromday}/{atDay}  |
+| ----------        | ------------------------------- |
+| Método            | GET                        |
+| Produces          | application/json                |
+| Consumes          | application/json                |
+| Path Parametes    | {fromday} = dia de inicior {atDay}</code> = Dia final |
+| Response Status   | 200 OK - OK                     |
+| Response Object   | String                          |
+| Descripcion       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
+
 
 
 
 <table>
 <tr>
-    <td>Método</td>
-    <td>API</td>
-    <td>Produces</td>
-    <td>Consumes</td>
-    <td>Path Parameters</td>
-    <td>Response status code</td>
-    <td>Response Object</td>
-    <td>Descripción</td>    
-</tr>
-<tr>
-    <td>GET</td>    
-    <td><code>/api/forecast/dayforecast/{id}</code></td>
-    <td><code>application/json</code></td>
-    <td><code>application/json</code></td>
-    <td><code>{id}</code> = Numero del dia a consultar</td>
-    <td><code>200 OK - OK</code></td>
-    <td>String</td>
-    <td>Clima del dia consultado</td>
-</tr>
-<tr>
     <td>GET</td>
-    <td><code>/api/forecast/fakefordebugg/{fromday}/{atDay}</code></td>
+    <td><code></code></td>
+    <td><code></code></td>
     <td><code>application/json</code></td>
-    <td><code>application/json</code></td>
-    <td><code>{fromday}</code> = dia de inicio | <code>{atDay}</code> = Dia final</td>
+    <td><code>{fromday}</code> = dia de inicio | <code></td>
     <td><code>200 OK - OK</code></td>
     <td>String</td>
-    <td>su única función es chequear conexion con el microservicio que accede a la base de datos</td>
+    <td></td>
 </tr>
 <tr>
     <td>GET</td>

@@ -5,6 +5,7 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
+
 | Método            |  GET                            |
 | : ------------- : | : --------------------------- : |
 |   API             | /api/forecast/dayforecast/{id}  |

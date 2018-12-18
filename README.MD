@@ -17,25 +17,35 @@ anti­horario, su distancia con respecto al sol es de 1000Km.
 Cuando los tres planetas están alineados entre sí y a su vez alineados con respecto al sol, el
 sistema solar experimenta un período de sequía.
 
-  ![Con titulo](pictures/alineadosconsol.png "Alineación")
+  ![Con titulo](pictures/alineadosconsol.png "JSONDocs")
   
-  _Lo primero que debemos calcular son las posiciones X,Y de cada planeta y del sol para poder aplicar los modelos geométricos de línea, área y perímetro. Teniendo la velocidad angular(w) y el radio, podemos determinar el ángulo de desplazamiento del planeta en un dia específico._
+  _Antes que nada debemos calcular las posiciones X,Y de cada planeta y del sol para poder aplicar los modelos geométricos de línea, área y perímetro. teniendo la velocidad angular(w) y el radio podemos determinar el ángulo de desplazamiento del planeta en un dia especifico. La precision decimal la coloque en double 10d para tener la mayor cantidad de alineaciones posibles_
   
          w = anguloDesp / tiempo  => anguloDesp = w * tiempo
 	 
-	 una vez calculado el angulo de desplazamiento debemos convertirlo de grados a radianes y sustituirlo en los modelos 
+	 una vez calculado el angulo de desplazamiento tenemos convertimos el angulo que esta en grados a radianes y sustituimos en los modelos 
 	 
 	 X = r * cos(angulo en radianes) y Y = r * sin(angulo en radianes)_
   
-  _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración la indeterminacion de la pendiente cuando la recta es paralela al eje Y, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
-   dos puntos que forman una recta P1(x1,y1) y P2(x2,y2) un tercer punto P3(x,y) es colineal si al sustituir los valores de X,Y en el modelo el resultado es cero.
+  _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración cuando la recta es paralela al eje Y, debido a que la pendiente es infinita, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
+  
+   _dos puntos que forman una recta P1(x1,y1) y P2(x2,y2) un terce punto P3(x,y) es colineal si al sustituir los valores de X,Y en el modelo el resultado es cero._
   	
   	s = (y2 - y1) * x + (x1 - x2) * y + (x2 * y1 - x1 * y2); | alineados si s=0
 	en el caso del sol P3(0,0)=> x=0, y=0
 
-![Con titulo](pictures/bestconditions.png "Alineación")
 
-        
+
+
+![Con titulo](pictures/bestconditions.png "Mejores Condiciones")
+
+	_De aquí obtenemos que si los puntos están alineados entre sí y a su vez con el sol... Sequía_
+	_Sí los puntos estan alineados entre sí pero no con el sol... Condiciones óptimas de presión y de temperatura_
+
+![Con titulo](pictures/periodolluvia.png "Periodo de lluvia")
+
+	_Si los planetas no estan alineados solo queda la opción de que formen un triangulo, habría que determinar si el punto donde se ubica el sol pertenece al área que forma el triangulo; hay dos metodos de hacerlo que mantienen la capacidad de calculo en O(1). Una es por producto vectorial para ver la orientacion del punto mientras se recorre vectorialmente en un mismo sentido (horario o anti-horario) las lineas que forman el poligono convexo que en este caso es el triangulo y otra es por la suma de areas de los triangulos internos que se formarían suponiendo que el punto está dentro del polígono
+
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos

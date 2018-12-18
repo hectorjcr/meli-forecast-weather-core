@@ -23,7 +23,7 @@ sistema solar experimenta un período de sequía.
   
          w = anguloDesp / tiempo  => anguloDesp = w * tiempo
 	 
-	 una vez calculado el angulo de desplazamiento tenemos convertimos el angulo que esta en grados a radianes y sustituimos en los modelos 
+	 una vez calculado el angulo de desplazamiento debemos convertirlo de grados a radianes y sustituirlo en los modelos 
 	 
 	 X = r * cos(angulo en radianes) y Y = r * sin(angulo en radianes)_
   

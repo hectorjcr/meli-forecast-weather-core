@@ -68,7 +68,7 @@ _Si los planetas no estan alineados solo queda la opción de que formen un trian
         return ((a.getX()*( b.getY() - c.getY() )) + (b.getX() * ( c.getY() - a.getY() )) + (c.getX() * ( a.getY() - b.getY() )))/2;
     }
 
-## Descripción
+## Descripción de la API
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
 

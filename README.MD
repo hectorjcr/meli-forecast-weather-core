@@ -37,19 +37,19 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | Path Parametes    | {fromday} = dia de inicior {atDay}</code> = Dia final |
 | Response Status   | 200 OK - OK                     |
 | Response Object   | String                          |
-| Descripcion       | >Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
+| Descripcion       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
 
-<tr>
-    <td>GET</td>
-    <td><code>/api/forecast/totalreport</code></td>
-    <td><code>application/json</code></td>
-    <td><code>application/json</code></td>
-    <td><code>N/A</td>
-    <td><code>200 OK - OK</code></td>
-    <td>String</td>
-    <td>Genera el reporte total de periodos de clima</td>
-</tr>
-</table>
+| URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport  |
+| ----------        | ------------------------------- |
+| API            | GET                        |
+| Método            | GET                        |
+| Produces          | application/json                |
+| Consumes          | application/json                |
+| Path Parametes    | N/A |
+| Response Status   | 200 OK - OK                     |
+| Response Object   | String                          |
+| Descripcion       | Genera el reporte total de periodos de clima        |
+
 
 La solución del ejercicio a las preguntas
 <ul>

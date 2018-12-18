@@ -6,7 +6,7 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
 
-## Calculo del clima de un día en particular
+### Calculo del clima de un día en particular
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/dayforecast/{id}  |
 | ----------        | ------------------------------- |
 | __API__               | /api/forecast/dayforecast/{id}  |
@@ -19,7 +19,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Clima del dia consultado a partir de calculo matemático, el valor no está almacenado        |
 
 
-## Para probar conectividad con el microservicio
+### Para probar conectividad con el microservicio
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -32,7 +32,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
 
 
-## Genera todos los registros climáticos diarios en un periodo de 10 años
+### Genera todos los registros climáticos diarios en un periodo de 10 años
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/generaterecords/{fromday}/{atday}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -45,7 +45,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
 
 
-## Genera un reporte general en base al calculo de los periodos de sequía, lluvia pico máximo de lluvia, y condiciones óptimas de presion y temperatura
+### Genera un reporte general en base al calculo de los periodos de sequía, lluvia pico máximo de lluvia, y condiciones óptimas de presion y temperatura
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -58,7 +58,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Genera el reporte total de periodos de clima        |
 
 
-La solución del ejercicio a las preguntas
+##La solución del ejercicio a las preguntas
 
  1.- ¿Cuantos periodos de sequia habrá?
  2.- ¿Cuantos periodos de lluvia habra y que dia sera el pico maximo de lluvia?
@@ -75,24 +75,25 @@ La solución del ejercicio a las preguntas
 		"status": 20
 		}
 		
-##Procedimientos para el funcionamiento
+## Procedimientos para el funcionamiento
 
-###Direccion de la aplicacion desplegada en Heroku
+### Direccion de la aplicacion desplegada en Heroku
 
 		https://meli-forecast-core-ms.herokuapp.com/
 
 
-###Direccion del repositorio en heroku para ser clonadonado
+### Direccion del repositorio en heroku para ser clonadonado
 
 	https://git.heroku.com/meli-forecast-core-ms.git
-###Direccion del repositorio en GitHub para ser clonado o ver su codigo en linea
+### Direccion del repositorio en GitHub para ser clonado o ver su codigo en linea
 
 	https://github.com/hectorjcr/meli-forecast-weather-core.git
     
-###Direccion de la documentacion para la API REST
+### Direccion de la documentacion para la API REST
 
 		https://meli-forecast-core-ms.herokuapp.com/jsondoc-ui.html
-		dentro de la barra de busqueda ingresar esta direccion: https://meli-forecast-core-ms.herokuapp.com/jsondoc
+	dentro de la barra de busqueda ingresar esta direccion: 
+		https://meli-forecast-core-ms.herokuapp.com/jsondoc
 
 
 

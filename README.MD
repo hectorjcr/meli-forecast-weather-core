@@ -29,13 +29,13 @@ sistema solar experimenta un período de sequía.
         return Boolean.TRUE;
         return Boolean.FALSE;
     	}
-  
-  
+
 	:::python
-   	import lifetime
+    	import lifetime
     
     	for each_day in lifetime.days():
         carpe_diem()
+	
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos

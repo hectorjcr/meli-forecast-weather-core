@@ -8,8 +8,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 
 | Método | API | Produces | Consumes | Path Parameters | Response Status | REsponse Object | Descripcion | 
 | :------- | :------: | -----: | :------- | :------: | -----: | :------- | :------: |
-| Item 1   | 15       | 150€   |
-| Item 2   | 3250     | 23,65€ |
+| GET | /api/forecast/dayforecast/{id} | application/json | application/json | {id}=Numero del dia a consultar | 200 OK - OK | String | Clima del dia consultado |
 
 |-Método-|----------API-------------------|Produces|Consumes|Path Parameters|Response Status|Response Object|Descripcion|
 |:-GET:--|:/api/forecast/dayforecast/{id}:|:application/json:|:application/json:|:{id}=Numero del dia a consultar:|:200 OK - OK:|:String:|:Clima del dia consultado:|

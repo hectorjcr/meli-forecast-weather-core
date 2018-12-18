@@ -19,6 +19,12 @@ sistema solar experimenta un período de sequía.
 
   ![Con titulo](pictures/alineadosconsol.png "JSONDocs")
   
+  _Antes que nada debemos calcular las posiciones X,Y de cada planeta y del sol para poder aplicar los modelos geométricos de línea, área y perímetro. teniendo la velocidad angular(w) y el radio podemos determinar el ángulo de desplazamiento del planeta en un dia especifico.
+  
+         w = anguloDesp / tiempo  => anguloDesp = w * tiempo
+	 
+	 una vez calculado el angulo de desplazamiento tenemos convertimos el angulo que esta en grados a radianes y sustituimos en los modelos X = r * cos(angulo en radianes) y Y = r * sin(angulo en radianes)_
+  
   _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración cuando la recta es paralela al eje Y, debido a que la pendiente es infinita, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
    dos puntos que forman una recta P1(x1,y1) y P2(x2,y2) un terce punto P3(x,y) es colineal si al sustituir los valores de X,Y en el modelo el resultado es cero.
   	

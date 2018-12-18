@@ -17,7 +17,7 @@ anti­horario, su distancia con respecto al sol es de 1000Km.
 Cuando los tres planetas están alineados entre sí y a su vez alineados con respecto al sol, el
 sistema solar experimenta un período de sequía.
 
-				![Con titulo](pictures/alineadosconsol.png "JSONDocs")
+  ![Con titulo](pictures/alineadosconsol.png "JSONDocs")
 
 ## Descripción
 

@@ -21,21 +21,8 @@ sistema solar experimenta un período de sequía.
   
   _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración cuando la recta es paralela al eje Y, debido a que la pendiente es infinita, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
   	
-  	::java
-	public boolean isCollinear(Point p){
-        //int s = (y2 - y1) * x + (x1 - x2) * y + (x2 * y1 - x1 * y2);
-        double s =(p2.getY() - p1.getY()) * p.getX() + (p1.getX() - p2.getX()) * p.getY() + (p2.getX() * p1.getY() - p1.getX() * p2.getY());
-        if(s == 0)
-        return Boolean.TRUE;
-        return Boolean.FALSE;
-    	}
-
-	::python
-    	import lifetime
-    
-    	for each_day in lifetime.days():
-        carpe_diem()
-	
+  	s = (y2 - y1) * x + (x1 - x2) * y + (x2 * y1 - x1 * y2); | alineados si s=0
+        
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos

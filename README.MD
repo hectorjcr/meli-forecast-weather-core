@@ -20,8 +20,10 @@ sistema solar experimenta un período de sequía.
   ![Con titulo](pictures/alineadosconsol.png "JSONDocs")
   
   _Para determinar la alineacion de planetas entre si y a su vez con el sol, utilicé el modelo de colinealidad que es una derivación del modelo de la recta, pero sin tener en consideración cuando la recta es paralela al eje Y, debido a que la pendiente es infinita, una ventaja de usar este modelo es que la ejecución se mantiene en O(1)_
+   dos puntos que forman una recta P1(x1,y1) y P2(x2,y2) un terce punto P3(x,y) es colineal si al sustituir los valores de X,Y en el modelo el resultado es cero.
   	
   	s = (y2 - y1) * x + (x1 - x2) * y + (x2 * y1 - x1 * y2); | alineados si s=0
+	en el caso del sol P3(0,0)=> x=0, y=0
         
 ## Descripción
 

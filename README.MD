@@ -17,8 +17,8 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Response Object__   | String                          |
 | __Descripcion__       | Clima del dia consultado a partir de calculo matemático, el valor no está almacenado        |
 
-
-
+~~~
+~~~
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -29,7 +29,8 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Response Status__   | 200 OK - OK                     |
 | __Response Object__   | String                          |
 | __Descripcion__       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
-
+~~~
+~~~
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/generaterecords/{fromday}/{atday}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -40,7 +41,8 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Response Status__   | 200 OK - OK                     |
 | __Response Object__   | String                          |
 | __Descripcion__       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
-
+~~~
+~~~
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |

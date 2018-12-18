@@ -8,47 +8,49 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/dayforecast/{id}  |
 | ----------        | ------------------------------- |
-| API               | /api/forecast/dayforecast/{id}  |
-| Método            | GET                        |
-| Produces          | application/json                |
-| Consumes          | application/json                |
-| Path Parametes    | {id}=Numero del dia a consultar |
-| Response Status   | 200 OK - OK                     |
-| Response Object   | String                          |
+| __API__               | /api/forecast/dayforecast/{id}  |
+| __Método__            | GET                        |
+| __Produces__          | application/json                |
+| __Consumes__          | application/json                |
+| __Path Parametes__    | {id}=Numero del dia a consultar |
+| __Response Status__   | 200 OK - OK                     |
+| __Response Object__   | String                          |
 | __Descripcion__       | Clima del dia consultado a partir de calculo matemático, el valor no está almacenado        |
+
+
 
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |
-| API            | GET                        |
-| Método            | GET                        |
-| Produces          | application/json                |
-| Consumes          | application/json                |
-| Path Parametes    | {fromday} = dia de inicior {atDay}</code> = Dia final |
-| Response Status   | 200 OK - OK                     |
-| Response Object   | String                          |
-| Descripcion       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
+| __API__            | GET                        |
+| __Método__            | GET                        |
+| __Produces__          | application/json                |
+| __Consumes__          | application/json                |
+| __Path Parametes__    | {fromday} = dia de inicior {atDay}</code> = Dia final |
+| __Response Status__   | 200 OK - OK                     |
+| __Response Object__   | String                          |
+| __Descripcion__       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
 
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/generaterecords/{fromday}/{atday}  |
 | ----------        | ------------------------------- |
-| API            | GET                        |
-| Método            | GET                        |
-| Produces          | application/json                |
-| Consumes          | application/json                |
-| Path Parametes    | {fromday} = dia de inicior {atDay}</code> = Dia final |
-| Response Status   | 200 OK - OK                     |
-| Response Object   | String                          |
-| Descripcion       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
+| __API__            | GET                        |
+| __Método__            | GET                        |
+| __Produces__          | application/json                |
+| __Consumes__          | application/json                |
+| __Path Parametes__    | {fromday} = dia de inicior {atDay}</code> = Dia final |
+| __Response Status__   | 200 OK - OK                     |
+| __Response Object__   | String                          |
+| __Descripcion__       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
 
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport  |
 | ----------        | ------------------------------- |
-| API            | GET                        |
-| Método            | GET                        |
-| Produces          | application/json                |
-| Consumes          | application/json                |
-| Path Parametes    | N/A |
-| Response Status   | 200 OK - OK                     |
-| Response Object   | String                          |
-| Descripcion       | Genera el reporte total de periodos de clima        |
+| __API__            | GET                        |
+| __Método__            | GET                        |
+| __Produces__          | application/json                |
+| __Consumes__          | application/json                |
+| __Path Parametes__    | N/A |
+| __Response Status__   | 200 OK - OK                     |
+| __Response Object__   | String                          |
+| __Descripcion__       | Genera el reporte total de periodos de clima        |
 
 
 La solución del ejercicio a las preguntas

@@ -8,10 +8,12 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 
 | API               | Cabecera B                      |
 | ----------        | ------------------------------- |
-| Campo A0          | Campo B0                        |
-| Campo A1          | Campo B1                        |
-
-| Método            |  GET                            | 
+| Método            | Campo B0                        |
+| Produces          | Campo B1                        |
+| Consumes          | Campo B0                        |
+| Path Parametes    |                                 |
+| Método            | Campo B0                        |
+|             |  GET                            | 
 | : ------------- : | : --------------------------- : | 
 |   API             | /api/forecast/dayforecast/{id}  | 
 | Produces          | application/json                | 

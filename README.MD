@@ -58,7 +58,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Genera el reporte total de periodos de clima        |
 
 
-##La solución del ejercicio a las preguntas
+## La solución del ejercicio a las preguntas
 
  1.- ¿Cuantos periodos de sequia habrá?
  2.- ¿Cuantos periodos de lluvia habra y que dia sera el pico maximo de lluvia?
@@ -92,9 +92,11 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 ### Direccion de la documentacion para la API REST
 
 		https://meli-forecast-core-ms.herokuapp.com/jsondoc-ui.html
+	
 	dentro de la barra de busqueda ingresar esta direccion: 
 		https://meli-forecast-core-ms.herokuapp.com/jsondoc
 
+![Con titulo](pictures/captura.png "JSONDocs")
 
 
 

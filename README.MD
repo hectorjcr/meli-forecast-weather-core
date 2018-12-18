@@ -5,13 +5,16 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 ## Descripción
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
+| Método | GET |
+| :----: | :---: |
+| API | /api/forecast/dayforecast/{id} |
+| Produces | application/json |
+| Consumes | application/json |
+| Path Parameters | {id}=Numero del dia a consultar |
+| Response Status | 200 OK - OK |
+| Response Object | String |
+| Descripcion | Clima del dia consultado |
 
-| Método | API | Produces | Consumes | Path Parameters | Response Status | REsponse Object | Descripcion | 
-| :------- | :------: | -----: | :------- | :------: | -----: | :------- | :------: |
-| GET | /api/forecast/dayforecast/{id} | application/json | application/json | {id}=Numero del dia a consultar | 200 OK - OK | String | Clima del dia consultado |
-
-|-Método-|----------API-------------------|Produces|Consumes|Path Parameters|Response Status|Response Object|Descripcion|
-|:-GET:--|:/api/forecast/dayforecast/{id}:|:application/json:|:application/json:|:{id}=Numero del dia a consultar:|:200 OK - OK:|:String:|:Clima del dia consultado:|
 <table>
 <tr>
     <td>Método</td>

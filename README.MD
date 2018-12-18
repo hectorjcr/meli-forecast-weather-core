@@ -6,6 +6,7 @@ CONTROLADOR PRINCIPAL PARA LAS PREDICCIONES CLIMATICAS
 
 Operaciones pertinentes al control de data e información del clima, genera la informacion que se almacena en la base de datos
 
+## Calculo del clima de un día en particular
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/dayforecast/{id}  |
 | ----------        | ------------------------------- |
 | __API__               | /api/forecast/dayforecast/{id}  |
@@ -18,7 +19,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Clima del dia consultado a partir de calculo matemático, el valor no está almacenado        |
 
 
-
+## Para probar conectividad con el microservicio
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/fakefordebugg/{fromday}/{atDay}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -31,7 +32,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | su única función es chequear conexion con el microservicio que accede a la base de datos        |
 
 
-
+## Genera todos los registros climáticos diarios en un periodo de 10 años
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/generaterecords/{fromday}/{atday}  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |
@@ -44,7 +45,7 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 | __Descripcion__       | Genera los registros climatologicos diarios, es activado por el Job scheduler y le realiza las request de escritura al microservicio de la BD        |
 
 
-
+## Genera un reporte general en base al calculo de los periodos de sequía, lluvia pico máximo de lluvia, y condiciones óptimas de presion y temperatura
 | URL               | https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport  |
 | ----------        | ------------------------------- |
 | __API__            | GET                        |

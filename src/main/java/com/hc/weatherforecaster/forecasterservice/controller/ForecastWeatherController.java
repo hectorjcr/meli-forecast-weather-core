@@ -37,6 +37,7 @@ import static org.springframework.http.ResponseEntity.notFound;
         stage = ApiStage.RC)
 public class ForecastWeatherController {
 
+        //TODO use GSON for String Object Responses
     private static final Logger CONTROLLER_LOGGER = Logger.getLogger(ForecastWeatherController.class.getName());
 
 
@@ -111,10 +112,13 @@ public class ForecastWeatherController {
     @ApiMethod(description = "Devuelve un string con los valores del reporte total de eventos climatologicos")
     public ResponseEntity<String> getTotalReport(){
         String result="";
-        int totalRows = 0;
+        int totalRows = 3650;
+        //TODO  locating the RestTemplate in a Bean to approach template instatiation
         //RestTemplate template = new RestTemplate();
         restUri = restUri + uriSuffix + "/totalrows";
-        /*try{
+        //TODO
+        /*try{                  //this piece of code is for automatic update database verifing kubernets for better performance
+                                //for now its doing this for about 10 years assuming a year =360 days and begining at t=0
             //template.wait(5000);
             String response = restTemplate.getForObject(restUri.toString(),String.class);
             //String response = template.exchange(restUri,HttpMethod.GET,String.class)
@@ -123,7 +127,7 @@ public class ForecastWeatherController {
             CONTROLLER_LOGGER.log(Level.WARNING,e.getMessage());
             return ResponseEntity.noContent().build();
         }*/
-        ForecastFinalReport forecastFinalReport = weatherForecasterService.finalForecastReport(0,3650);
+        ForecastFinalReport forecastFinalReport = weatherForecasterService.finalForecastReport(0,totalRows);
         String output = "Total periodos de lluvia: " + forecastFinalReport.getRainyPeriods() +
                 " Total periodos de Sequia: " + forecastFinalReport.getDroghtPeriods() +
                 " Total periodos de Condiciones optimas: " + forecastFinalReport.getBestConditionPeriods() +

@@ -44,25 +44,29 @@ public class WeatherForecasterService implements WeatherForecasterServiceInterfa
     @Override
     public ForecastFinalReport finalForecastReport(int fromDay, int atDay) {
         ForecastFinalReport forecastFinalReport;
-        int rainyP=0,droughtP=0,bestDaysP=0,rainyPeakD=0,foggyDp =0,topPeakrainyDay =0;
+        int rainyDays=0,droughtDays=0,bestDaysDays=0,foggyDays =0,topPeakrainyDay =0;
+        int rainPeriods = 0, droughtPeriods = 0, bestDayPeriods = 0,foggyPeriods = 0;
         double maxPerimeter = 0, perimeter=0;
         List<Planet> planetList = getPlanetsList();
         for (int i = fromDay; i < atDay; i++) {
             List<Point> pointsList = MathUtilities.planetsToPointsList(planetList,i);
-            if(MathUtilities.planetsShape(pointsList) && MathUtilities.areSunAligned(pointsList)) droughtP++;
-            if(MathUtilities.planetsShape(pointsList) && !MathUtilities.areSunAligned(pointsList)) bestDaysP++;
+            if(MathUtilities.planetsShape(pointsList) && MathUtilities.areSunAligned(pointsList))
+                droughtDays++;
+            if(MathUtilities.planetsShape(pointsList) && !MathUtilities.areSunAligned(pointsList))
+                bestDaysDays++;
             if(!MathUtilities.planetsShape(pointsList) && MathUtilities.sunInsideTriangle(pointsList)){
-                rainyP++;
+                rainyDays++;
                 perimeter = MathUtilities.trianglePerimeter(pointsList);
                 if(perimeter > maxPerimeter){
                     maxPerimeter=perimeter;
                     topPeakrainyDay = i;
                 }
             }else{
-                foggyDp++;
+                foggyDays++;
             }
         }
-        return new ForecastFinalReport(rainyP,droughtP,topPeakrainyDay,bestDaysP,foggyDp);
+        return new ForecastFinalReport(rainPeriods,droughtPeriods,foggyPeriods,bestDayPeriods,
+                rainyDays,droughtDays,topPeakrainyDay,bestDaysDays,foggyDays);
     }
 
     @Override

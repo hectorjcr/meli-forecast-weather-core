@@ -16,6 +16,7 @@ import java.util.logging.*;
 
 @SpringBootApplication
 @EnableJSONDoc
+@EnableAsync
 public class ForecasterServiceApplication {
 
     private final static Logger ROOT_LOGGER = Logger.getLogger("com.hc.weatherforecaster.forecasterservice");

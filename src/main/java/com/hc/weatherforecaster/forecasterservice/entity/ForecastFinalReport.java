@@ -6,13 +6,21 @@ public class ForecastFinalReport {
     private int maxRainyPeak;
     private int bestConditionPeriods;
     private int foggyPeriods;
+    private int rainyDays;
+    private int droughtDays;
+    private int bestConditionsDays;
+    private int foggyDays;
 
-    public ForecastFinalReport(int rainyPeriods, int droghtPeriods, int maxRainyPeak, int bestConditionPeriods, int foggyPeriods) {
+    public ForecastFinalReport(int rainyPeriods, int droghtPeriods, int maxRainyPeak, int bestConditionPeriods, int foggyPeriods, int rainyDays, int droughtDays, int bestConditionsDays, int foggyDays) {
         this.rainyPeriods = rainyPeriods;
         this.droghtPeriods = droghtPeriods;
         this.maxRainyPeak = maxRainyPeak;
         this.bestConditionPeriods = bestConditionPeriods;
         this.foggyPeriods = foggyPeriods;
+        this.rainyDays = rainyDays;
+        this.droughtDays = droughtDays;
+        this.bestConditionsDays = bestConditionsDays;
+        this.foggyDays = foggyDays;
     }
 
     public int getRainyPeriods() {
@@ -55,6 +63,38 @@ public class ForecastFinalReport {
         this.foggyPeriods = foggyPeriods;
     }
 
+    public int getRainyDays() {
+        return rainyDays;
+    }
+
+    public void setRainyDays(int rainyDays) {
+        this.rainyDays = rainyDays;
+    }
+
+    public int getDroughtDays() {
+        return droughtDays;
+    }
+
+    public void setDroughtDays(int droughtDays) {
+        this.droughtDays = droughtDays;
+    }
+
+    public int getBestConditionsDays() {
+        return bestConditionsDays;
+    }
+
+    public void setBestConditionsDays(int bestConditionsDays) {
+        this.bestConditionsDays = bestConditionsDays;
+    }
+
+    public int getFoggyDays() {
+        return foggyDays;
+    }
+
+    public void setFoggyDays(int foggyDays) {
+        this.foggyDays = foggyDays;
+    }
+
     @Override
     public String toString() {
         return "ForecastFinalReport{" +
@@ -63,6 +103,10 @@ public class ForecastFinalReport {
                 ", maxRainyPeak=" + maxRainyPeak +
                 ", bestConditionPeriods=" + bestConditionPeriods +
                 ", foggyPeriods=" + foggyPeriods +
+                ", rainyDays=" + rainyDays +
+                ", droughtDays=" + droughtDays +
+                ", bestConditionsDays=" + bestConditionsDays +
+                ", foggyDays=" + foggyDays +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.hc.weatherforecaster.forecasterservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.hc.weatherforecaster.forecasterservice.entity.ForecastFinalReport;
 import com.hc.weatherforecaster.forecasterservice.entity.Planet;
 import com.hc.weatherforecaster.forecasterservice.exception.ResourceNotFoundException;
@@ -12,6 +13,7 @@ import org.jsondoc.core.annotation.ApiPathParam;
 import org.jsondoc.core.pojo.ApiStage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +40,6 @@ import static org.springframework.http.ResponseEntity.notFound;
         stage = ApiStage.RC)
 public class ForecastWeatherController {
 
-        //TODO use GSON for String Object Responses
     private static final Logger CONTROLLER_LOGGER = Logger.getLogger(ForecastWeatherController.class.getName());
 
 
@@ -51,12 +53,19 @@ public class ForecastWeatherController {
     @Autowired
     private WeatherForecasterService weatherForecasterService;
 
+    public ForecastWeatherController(RestTemplateBuilder restTemplateBuilder) {
+        this.restTemplate = restTemplateBuilder.build();
+    }
+
     @RequestMapping(value = "/fakefordebugg/{fromday}/{atDay}")
     @ApiMethod(description = "Este metodo es usado solo para verificar que los servicios se comunican entre si")
-    public ResponseEntity<String> getBulkConnection(@ApiPathParam(name = "fromday", description = "Dia de inicio") @PathVariable(value = "fromday") String fd,
+    public ResponseEntity<HashMap> getBulkConnection(@ApiPathParam(name = "fromday", description = "Dia de inicio") @PathVariable(value = "fromday") String fd,
                                                     @ApiPathParam(name = "atDay", description = "Dia final") @PathVariable(value = "atDay") String ad){
-        CONTROLLER_LOGGER.log(Level.INFO,"From day: "+ fd + "At Day: "+ ad);
-        return ResponseEntity.ok("From day: "+ fd + "At Day: "+ ad);
+        HashMap<String,String> result = new HashMap<>();
+        result.put("fromDay",fd);
+        result.put("atDay",ad);
+        CONTROLLER_LOGGER.log(Level.INFO,result.toString());
+        return ResponseEntity.ok(result);
     }
 
     @RequestMapping(value = "/dayforecast/{id}")
@@ -65,18 +74,22 @@ public class ForecastWeatherController {
                                                       @PathVariable(value = "id") int day) throws ResourceNotFoundException {
         List<Planet> planetsList = weatherForecasterService.getPlanetsList();
         ExplicitDayForecast dayForecast;
+        String json;
         try {
              dayForecast = weatherForecasterService.forecastWeatherFromDay(planetsList,day);
+             ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+             json = ow.writeValueAsString(dayForecast);
+
         } catch (Exception e) {
             CONTROLLER_LOGGER.log(Level.FINE, WeatherForecasterService.getStackTrace(e));
             return new ResponseEntity<String>("Recurso no encontrado",HttpStatus.NO_CONTENT);
         }
         CONTROLLER_LOGGER.log(Level.INFO,dayForecast.toString());
-        return new ResponseEntity<String>(dayForecast.toString(),HttpStatus.valueOf(200));
+        return new ResponseEntity<String>(json,HttpStatus.valueOf(200));
     }
 
     @RequestMapping(value = "/generaterecords/{fromday}/{atday}")
-    @Async
+    @Async(value = "threadPoolTaskExecutor")
     @ApiMethod(description = "Este metodo solo debe ser levantado por el microservicio del job Scheduler, " +
             "se usa para generar el pronostico completo de un rango de dias si los dia del rango ya existen, actualiza " +
             "la informacion de lo contrario crea una nueva entrada")
@@ -110,31 +123,21 @@ public class ForecastWeatherController {
 
     @RequestMapping(value = "/totalreport")
     @ApiMethod(description = "Devuelve un string con los valores del reporte total de eventos climatologicos")
-    public ResponseEntity<String> getTotalReport(){
+    @Async(value = "threadPoolTaskExecutor")
+    public ResponseEntity<ForecastFinalReport> getTotalReport(){
         String result="";
         int totalRows = 3650;
-        //TODO  locating the RestTemplate in a Bean to approach template instatiation
-        //RestTemplate template = new RestTemplate();
         restUri = restUri + uriSuffix + "/totalrows";
-        //TODO
-        /*try{                  //this piece of code is for automatic update database verifing kubernets for better performance
-                                //for now its doing this for about 10 years assuming a year =360 days and begining at t=0
-            //template.wait(5000);
+        try{
             String response = restTemplate.getForObject(restUri.toString(),String.class);
-            //String response = template.exchange(restUri,HttpMethod.GET,String.class)
             totalRows = Integer.parseInt(response.toString());
         }catch (Exception e){
             CONTROLLER_LOGGER.log(Level.WARNING,e.getMessage());
             return ResponseEntity.noContent().build();
-        }*/
+        }
         ForecastFinalReport forecastFinalReport = weatherForecasterService.finalForecastReport(0,totalRows);
-        String output = "Total periodos de lluvia: " + forecastFinalReport.getRainyPeriods() +
-                " Total periodos de Sequia: " + forecastFinalReport.getDroghtPeriods() +
-                " Total periodos de Condiciones optimas: " + forecastFinalReport.getBestConditionPeriods() +
-                " Total de Periodos Nublados: " + forecastFinalReport.getFoggyPeriods() +
-                " Dia con pico maximo de lluvia: " + forecastFinalReport.getMaxRainyPeak();
-        CONTROLLER_LOGGER.log(Level.INFO, output);
-        return ResponseEntity.ok().body(output);
+        CONTROLLER_LOGGER.log(Level.INFO,forecastFinalReport.toString());
+        return ResponseEntity.ok().body(forecastFinalReport);
     }
 
 

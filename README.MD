@@ -164,5 +164,6 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 
 ![Con titulo](pictures/captura.png "JSONDocs")
 
-
+### Tests Unitarios
+![Con titulo](pictures/testunitarios.png "Tests Unitarios")
 

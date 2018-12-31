@@ -135,7 +135,18 @@ Operaciones pertinentes al control de data e información del clima, genera la i
 		https://meli-forecast-core-ms.herokuapp.com/api/forecast/totalreport
   Este genera la siguiente respuesta
   
-  	:::Json
+:::Json
+{
+ "rainyPeriods": 81,
+ "droghtPeriods": 21,
+ "maxRainyPeak": 72,
+ "bestConditionPeriods": 20,
+ "foggyPeriods": 81,
+ "rainyDays": 1208,
+ "droughtDays": 21,
+ "bestConditionsDays": 20,
+ "foggyDays": 2401
+}
 		{		
 		"responseText": "Total periodos de lluvia: 1760 Total periodos de Sequia: 20 Total periodos de Condiciones optimas: 20 Total de Periodos Nublados: 1839 Dia con pico maximo de lluvia: 67",
 		"status": 20

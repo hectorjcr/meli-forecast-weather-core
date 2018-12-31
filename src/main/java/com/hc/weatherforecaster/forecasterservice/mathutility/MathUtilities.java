@@ -69,7 +69,7 @@ public class MathUtilities {
 
     public static double trianglePerimeter(List<Point> pointsList){
         Point p1 = pointsList.get(0), p2 = pointsList.get(1), p3 = pointsList.get(2);
-        return pointsDistance(p1, p2) + pointsDistance(p2, p3) + pointsDistance(p2, p3);
+        return pointsDistance(p1, p2) + pointsDistance(p2, p3) + pointsDistance(p3, p1);
     }
 
     public static boolean sunInsideTriangle(List<Point> pointsList){

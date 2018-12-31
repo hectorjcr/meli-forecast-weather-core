@@ -45,28 +45,40 @@ public class WeatherForecasterService implements WeatherForecasterServiceInterfa
     public ForecastFinalReport finalForecastReport(int fromDay, int atDay) {
         ForecastFinalReport forecastFinalReport;
         int rainyDays=0,droughtDays=0,bestDaysDays=0,foggyDays =0,topPeakrainyDay =0;
-        int rainPeriods = 0, droughtPeriods = 0, bestDayPeriods = 0,foggyPeriods = 0;
         double maxPerimeter = 0, perimeter=0;
+        String climaActual ="",climaAnterior="Drought";
+        HashMap<String, Integer> periodos = new HashMap<>();
+        periodos.put("Drought",0);periodos.put("Rainy",0);periodos.put("Foggy",0);periodos.put("BestCondition",0);
         List<Planet> planetList = getPlanetsList();
         for (int i = fromDay; i < atDay; i++) {
             List<Point> pointsList = MathUtilities.planetsToPointsList(planetList,i);
-            if(MathUtilities.planetsShape(pointsList) && MathUtilities.areSunAligned(pointsList))
-                droughtDays++;
-            if(MathUtilities.planetsShape(pointsList) && !MathUtilities.areSunAligned(pointsList))
+            if(MathUtilities.planetsShape(pointsList) && MathUtilities.areSunAligned(pointsList)) {
+                droughtDays++;climaActual="Drought";
+            }
+            if(MathUtilities.planetsShape(pointsList) && !MathUtilities.areSunAligned(pointsList)) {
                 bestDaysDays++;
-            if(!MathUtilities.planetsShape(pointsList) && MathUtilities.sunInsideTriangle(pointsList)){
+                climaActual="BestCondition";
+            }
+            if(!MathUtilities.planetsShape(pointsList) && MathUtilities.sunLiesInTriangleVectorsMethod(pointsList)){
                 rainyDays++;
+                climaActual="Rainy";
                 perimeter = MathUtilities.trianglePerimeter(pointsList);
                 if(perimeter > maxPerimeter){
                     maxPerimeter=perimeter;
                     topPeakrainyDay = i;
                 }
-            }else{
-                foggyDays++;
             }
+            if(!MathUtilities.planetsShape(pointsList) && !MathUtilities.sunLiesInTriangleVectorsMethod(pointsList)){
+                foggyDays++;
+                climaActual = "Foggy";
+            }
+            if (!climaActual.equals(climaAnterior)){
+                periodos.computeIfPresent(climaAnterior,(k,v)->v+1);
+            }
+            climaAnterior = climaActual;
         }
-        return new ForecastFinalReport(rainPeriods,droughtPeriods,foggyPeriods,bestDayPeriods,
-                rainyDays,droughtDays,topPeakrainyDay,bestDaysDays,foggyDays);
+        return new ForecastFinalReport(periodos.get("Rainy"),periodos.get("Drought"),topPeakrainyDay,
+                periodos.get("BestCondition"),periodos.get("Foggy"),rainyDays,droughtDays,bestDaysDays,foggyDays);
     }
 
     @Override
@@ -77,7 +89,7 @@ public class WeatherForecasterService implements WeatherForecasterServiceInterfa
             }
             return this.BEST_CONDITION;
         }
-        if(MathUtilities.sunInsideTriangle(pointsList)){
+        if(MathUtilities.sunLiesInTriangleVectorsMethod(pointsList)){
             return this.RAINY;
         }
         return this.NORMAL;
@@ -101,6 +113,4 @@ public class WeatherForecasterService implements WeatherForecasterServiceInterfa
         e.printStackTrace(pWriter);
         return sWriter.toString();
     }
-
-
 }
